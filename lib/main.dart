@@ -9,15 +9,6 @@ void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  // Set the status bar color to white
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.white, // Status bar color
-      statusBarIconBrightness: Brightness.dark, // Dark icons
-      statusBarBrightness: Brightness.light, // Light brightness for iOS
-    ),
-  );
-
   // Set preferred orientations
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
