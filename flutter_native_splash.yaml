@@ -1,0 +1,24 @@
+flutter_native_splash:
+  # This package generates native code to customize Flutter's default white native splash screen
+  # with background color and splash image.
+  # Customize the parameters below, and run the following command in the terminal:
+  # dart run flutter_native_splash:create
+
+  # To restore Flutter's default white splash screen, run the following command in the terminal:
+  # dart run flutter_native_splash:remove
+
+  # The android, ios and web parameters can be used to disable generating a splash screen on a given
+  # platform.
+  android: true
+  ios: true
+  web: false
+  color: "#ffffff"
+  color_dark: "#ffffff"
+  image: assets/logo.png
+  branding: assets/branding.png
+  # To position the branding image at the bottom of the screen you can use bottom, bottomRight,
+  # and bottomLeft. The default values is bottom if not specified or specified something else.
+  #branding_mode: bottom
+  
+  # Set the branding padding from the bottom of the screen.  The default value is 0
+  branding_bottom_padding: 24
