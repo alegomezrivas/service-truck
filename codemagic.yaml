@@ -8,8 +8,10 @@ workflows:
     scripts:
       - flutter pub get
       - flutter analyze
-      - flutter build apk --release
       - flutter build ios --release --no-codesign
+      - flutter build apk --release --build-number=$PROJECT_BUILD_NUMBER \
+        --obfuscate --split-debug-info=./symbols/debug_symbols_android \
+        --extra-gen-snapshot-options=--save-obfuscation-map=./symbols/obfuscation_map \
     artifacts:
       - build/app/outputs/flutter-apk/app-release.apk
       - build/ios/ipa/*.ipa
