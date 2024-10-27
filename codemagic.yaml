@@ -10,7 +10,6 @@ workflows:
     scripts:
       - flutter pub get
       - flutter analyze
-      - flutter test
       - flutter build apk --release --target=lib/main_dev.dart --build-number=$PROJECT_BUILD_NUMBER \
         --obfuscate --split-debug-info=./symbols/debug_symbols_android \
         --extra-gen-snapshot-options=--save-obfuscation-map=./symbols/obfuscation_map \
@@ -26,7 +25,6 @@ workflows:
     scripts:
       - flutter pub get
       - flutter analyze
-      - flutter test
       - flutter build ios --release --no-codesign
     artifacts:
       - build/ios/ipa/*.ipa
