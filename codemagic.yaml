@@ -1,23 +1,6 @@
 workflows:
-
-  android-workflow:
-    name: Android Build Workflow
-    max_build_duration: 120
-    environment:
-      flutter: stable
-      android_signing:
-        - keystore_reference # Reemplaza con la referencia de tu keystore
-    scripts:
-      - flutter pub get
-      - flutter analyze
-      - flutter build apk --release --target=lib/main_dev.dart --build-number=$PROJECT_BUILD_NUMBER \
-        --obfuscate --split-debug-info=./symbols/debug_symbols_android \
-        --extra-gen-snapshot-options=--save-obfuscation-map=./symbols/obfuscation_map \
-    artifacts:
-      - build/app/outputs/flutter-apk/app-release.apk
-
-  ios-workflow:
-    name: iOS Build Workflow
+  flutter-build:
+    name: Flutter Build Workflow
     max_build_duration: 120
     environment:
       flutter: stable
@@ -25,6 +8,17 @@ workflows:
     scripts:
       - flutter pub get
       - flutter analyze
+      - flutter build apk --release
       - flutter build ios --release --no-codesign
     artifacts:
+      - build/app/outputs/flutter-apk/app-release.apk
       - build/ios/ipa/*.ipa
+
+    publishing: 
+      email:
+        recipients:
+          - alegomezrivas92@gmail.com
+          - geiserarecio@gmail.com
+        notify:
+          success: true
+          failure: false
